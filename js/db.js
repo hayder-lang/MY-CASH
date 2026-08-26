@@ -1,8 +1,7 @@
 import { firebaseConfig } from './firebase-config.js';
 
 const PROJECT_ID = firebaseConfig.projectId;
-const BASE_URL = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents`;
-
+const BASE_URL = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/default/documents`;
 function fetchWithTimeout(url, options, label) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 15000);
