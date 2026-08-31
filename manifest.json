@@ -1,17 +1,17 @@
 {
-  "name": "منافذ الرواتب",
-  "short_name": "منافذ الرواتب",
-  "description": "إدارة تسويات ومحاسبة منافذ صرف الرواتب",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#0f1115",
-  "theme_color": "#0f1115",
-  "orientation": "portrait",
-  "dir": "rtl",
-  "lang": "ar",
-  "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
-  ]
+    "name": "Manage My Cash",
+    "short_name": "MMC",
+    "description": "MMC salary agent accounting app",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#2b1963",
+    "theme_color": "#2b1963",
+    "orientation": "portrait",
+    "dir": "rtl",
+    "lang": "ar",
+    "icons": [
+          { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+          { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+          { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    ]
 }

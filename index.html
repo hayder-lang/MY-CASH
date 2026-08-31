@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#12151b" />
-<title>منافذ الرواتب</title>
+<meta name="theme-color" content="#2b1963" />
+<title>Manage My Cash</title>
 <link rel="manifest" href="manifest.json" />
 <link rel="apple-touch-icon" href="icons/icon-192.png" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -14,9 +14,9 @@
 <body>
 
 <div class="brand">
-  <div class="brand-mark">ر</div>
+  <img class="brand-mark" src="icons/icon-192.png" alt="MMC" />
   <div>
-    <div class="brand-name">منافذ الرواتب</div>
+    <div class="brand-name">Manage My Cash</div>
     <div class="brand-sub">محاسبة يومية لمنفذك</div>
   </div>
 </div>
@@ -72,20 +72,46 @@
 
 <!-- شاشة تسجيل الدخول -->
 <section id="screen-login" class="screen">
-  <div class="card">
-    <div class="title">تسجيل الدخول</div>
-    <div class="subtitle">حط رقم هاتفك ورمزك السري.</div>
+  <div class="login-screen">
+    <div class="login-hero">
+      <img class="login-logo-icon" src="icons/icon-192.png" alt="MMC" />
+      <div class="login-wordmark-text">Manage <span class="accent">my</span> cash</div>
+      <div class="login-mini-brand"><span></span>MMC<span></span></div>
+    </div>
 
-    <label>رقم الهاتف</label>
-    <input type="tel" id="login-phone" placeholder="07xxxxxxxxx" inputmode="numeric" />
+    <div class="login-welcome">
+      <div class="login-welcome-title">مرحباً بك!</div>
+      <div class="login-welcome-sub">سجّل الدخول لإدارة أموالك بسهولة</div>
+    </div>
 
-    <label>الرمز السري</label>
-    <input type="password" id="login-pin" placeholder="•••••" inputmode="numeric" maxlength="5" />
+    <div class="card login-card">
+      <label>رقم الهاتف</label>
+      <div class="phone-input-row">
+        <div class="country-chip">🇮🇶 964+</div>
+        <div class="input-icon-wrap">
+          <input type="tel" id="login-phone" placeholder="07xxxxxxxxx" inputmode="numeric" />
+          <span class="input-icon">📱</span>
+        </div>
+      </div>
 
-    <div class="error-text" id="login-error"></div>
-    <div style="height:6px"></div>
-    <button class="btn btn-primary" id="btn-login">دخول</button>
-    <button class="link-btn" id="link-forgot-pin">نسيت الرمز السري؟</button>
+      <label>الرمز السري</label>
+      <div class="input-icon-wrap">
+        <input type="password" id="login-pin" placeholder="أدخل الرمز السري" inputmode="numeric" maxlength="5" />
+        <span class="input-icon">🔒</span>
+        <button type="button" class="eye-toggle" id="btn-toggle-pin">👁</button>
+      </div>
+
+      <div class="error-text" id="login-error"></div>
+      <div style="height:6px"></div>
+      <button class="btn btn-primary btn-login-fancy" id="btn-login"><span>→</span> تسجيل الدخول</button>
+      <button class="link-btn" id="link-forgot-pin">نسيت الرمز السري؟</button>
+
+      <div class="login-divider"><span>أو</span></div>
+      <div class="login-signup-prompt">
+        ليس لديك اشتراك؟
+        <button class="link-btn inline" id="link-login-to-activation">طلب الإشتراك 📝</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -129,20 +155,252 @@
   </div>
 </section>
 
-<!-- لوحة مبدئية بعد الدخول -->
-<section id="screen-dashboard" class="screen">
+<!-- شاشة إعداد المنفذ (اختيار الأجهزة المتوفرة) -->
+<section id="screen-device-setup" class="screen">
   <div class="card">
-    <div class="title">تم تسجيل الدخول بنجاح</div>
-    <div class="subtitle">اشتراكك الحالي: <span id="dashboard-plan">—</span></div>
-    <div class="hint-box">هذي شاشة مبدئية. الشاشة الرئيسية الفعلية (الأرباح، الأرصدة، التسويات) تُبنى بالمرحلة الجاية.</div>
+    <div class="title">شنو الأجهزة المتوفرة عندك؟</div>
+    <div class="subtitle">اختر كل جهاز موجود بمنفذك. تكدر تعدلها لاحقاً من الإعدادات.</div>
+
+    <div class="device-list">
+      <label class="device-item"><input type="checkbox" value="Switch Rasheed" /> <span>Switch Rasheed</span></label>
+      <label class="device-item"><input type="checkbox" value="Switch NBI" /> <span>Switch NBI</span></label>
+      <label class="device-item"><input type="checkbox" value="Switch BOB" /> <span>Switch BOB</span></label>
+      <label class="device-item"><input type="checkbox" value="Qi" /> <span>Qi</span></label>
+      <label class="device-item"><input type="checkbox" value="Qasa" /> <span>Qasa</span></label>
+      <label class="device-item"><input type="checkbox" value="AlArab" /> <span>AlArab</span></label>
+      <label class="device-item"><input type="checkbox" value="Tabadul" /> <span>Tabadul</span></label>
+      <label class="device-item"><input type="checkbox" value="Blue" /> <span>Blue</span></label>
+    </div>
+
+    <div class="error-text" id="device-setup-error"></div>
     <div style="height:6px"></div>
-    <button class="btn btn-ghost" id="btn-logout">تسجيل خروج</button>
+    <button class="btn btn-primary" id="btn-save-devices">حفظ ومتابعة</button>
   </div>
 </section>
 
-<div class="center-note">منافذ الرواتب — نسخة تجريبية أولى</div>
+<!-- لوحة التحكم الرئيسية -->
+<section id="screen-dashboard" class="screen">
+  <div class="dash-header-new">
+    <button class="dash-bell-btn" id="btn-logout" title="تسجيل خروج">🔔</button>
+    <div class="dash-header-brand-centered">
+      <img class="dash-logo-icon-lg" src="icons/icon-192.png" alt="MMC" />
+      <div class="dash-header-wordmark">Manage <span class="accent">my</span> cash</div>
+      <div class="dash-header-mini"><span></span>MMC<span></span></div>
+    </div>
+  </div>
 
-<script type="module" src="js/auth.js"></script>
+  <div class="brand-sub" id="dash-date" style="text-align:center;margin-bottom:10px"></div>
+
+  <div class="profit-card-new">
+    <div class="profit-card-new-header">
+      <span>أرباحك اليوم</span>
+      <span class="profit-trend-icon">📈</span>
+    </div>
+    <div class="profit-card-new-box">
+      <div class="profit-value-new" id="dash-profit-today">0</div>
+      <div class="profit-currency">دينار عراقي</div>
+      <div class="subtitle" id="dash-count-today" style="margin-top:6px">0 تسوية اليوم</div>
+    </div>
+  </div>
+
+  <div class="dash-grid">
+    <button class="dash-tile" id="btn-open-add-settlement">
+      <span class="dash-tile-icon">📝</span>
+      <span class="dash-tile-label">إدخال تسوية</span>
+    </button>
+    <button class="dash-tile" id="btn-open-safe">
+      <span class="dash-tile-icon">🗄️</span>
+      <span class="dash-tile-label">الصندوق</span>
+    </button>
+    <button class="dash-tile" id="btn-open-daily-report">
+      <span class="dash-tile-icon">🕓</span>
+      <span class="dash-tile-label">أخر تسوية</span>
+    </button>
+    <button class="dash-tile" id="btn-open-add-charge">
+      <span class="dash-tile-icon">🔀</span>
+      <span class="dash-tile-label">الشحن والتحويل</span>
+    </button>
+  </div>
+
+  <button class="dash-wide-tile" id="btn-open-withdrawal">
+    <span class="dash-tile-icon">🏦</span>
+    <span class="dash-tile-label">السحب من المصرف</span>
+  </button>
+
+  <div style="height:80px"></div>
+
+  <nav class="bottom-nav">
+    <button class="nav-item" id="nav-settings">
+      <span class="nav-icon">⚙️</span><span>الإعدادات</span>
+    </button>
+    <button class="nav-item nav-item-active" id="nav-home">
+      <span class="nav-icon">🏠</span><span>الرئيسية</span>
+    </button>
+    <button class="nav-item" id="btn-open-periodic-report">
+      <span class="nav-icon">📊</span><span>التقارير</span>
+    </button>
+    <button class="nav-item" id="nav-account">
+      <span class="nav-icon">👤</span><span>الحساب</span>
+    </button>
+  </nav>
+</section>
+
+<!-- شاشة الصندوق (التفاصيل المالية) -->
+<section id="screen-safe" class="screen">
+  <div class="top-actions">
+    <button class="back-btn" id="link-back-dashboard-6">‹ رجوع</button>
+  </div>
+  <div class="card">
+    <div class="title">الصندوق</div>
+    <div class="subtitle">تفاصيل أرصدتك وحركاتك المالية</div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="subtitle">الشحن والتحويل اليوم</div>
+    <div class="profit-value" id="dash-charge-today" style="font-size:24px">0 د.ع</div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="subtitle" style="margin-bottom:10px">الرصيد المعلق بالأجهزة</div>
+    <div id="dash-balances-list" class="recent-list">
+      <div class="subtitle">لا يوجد رصيد معلق</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="subtitle" style="margin-bottom:10px">مجموع المسحوب من المصرف</div>
+    <div id="dash-withdrawn-list" class="recent-list">
+      <div class="subtitle">لا يوجد مسحوبات لهسه</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="subtitle" style="margin-bottom:10px">آخر التسويات</div>
+    <div id="dash-recent-list" class="recent-list">
+      <div class="subtitle">ماكو تسويات لهسه</div>
+    </div>
+  </div>
+</section>
+
+<!-- شاشة الكشف اليومي المفصّل -->
+<section id="screen-daily-report" class="screen">
+  <div class="top-actions">
+    <button class="back-btn" id="link-back-dashboard-3">‹ رجوع</button>
+  </div>
+  <div class="card">
+    <div class="title">الكشف اليومي</div>
+    <div class="date-nav">
+      <button class="date-nav-btn" id="btn-prev-day">‹</button>
+      <div class="subtitle" id="daily-report-date"></div>
+      <button class="date-nav-btn" id="btn-next-day">›</button>
+    </div>
+
+    <div class="commission-box" style="margin-top:14px">
+      <span>إجمالي أرباح اليوم</span>
+      <span id="daily-report-total">0 د.ع</span>
+    </div>
+
+    <div id="daily-report-table" class="report-table"></div>
+
+    <div class="subtitle" style="margin-top:18px;margin-bottom:8px">كل الحركات بالتفصيل</div>
+    <div id="daily-report-transactions" class="report-table"></div>
+  </div>
+</section>
+
+<!-- شاشة الشحن والتحويل -->
+<section id="screen-add-charge" class="screen">
+  <div class="top-actions">
+    <button class="back-btn" id="link-back-dashboard-5">‹ رجوع</button>
+  </div>
+  <div class="card">
+    <div class="title">شحن وتحويل</div>
+    <label>اختر الجهاز</label>
+    <div class="device-chips" id="charge-device-chips"></div>
+
+    <label>المبلغ المستلم كاش (نفس مبلغ الشحن)</label>
+    <input type="text" id="charge-amount" placeholder="1,000,000" inputmode="numeric" />
+
+    <div class="error-text" id="charge-error"></div>
+    <div style="height:6px"></div>
+    <button class="btn btn-primary" id="btn-save-charge">حفظ العملية</button>
+  </div>
+</section>
+
+<!-- شاشة الكشف الدوري -->
+<section id="screen-periodic-report" class="screen">
+  <div class="top-actions">
+    <button class="back-btn" id="link-back-dashboard-4">‹ رجوع</button>
+  </div>
+  <div class="card">
+    <div class="title">الكشف الدوري</div>
+    <div class="device-chips">
+      <div class="device-chip selected" id="btn-period-week" data-days="7">آخر 7 أيام</div>
+      <div class="device-chip" id="btn-period-month" data-days="30">آخر 30 يوم</div>
+    </div>
+
+    <div class="commission-box" style="margin-top:14px">
+      <span>إجمالي الأرباح بالفترة</span>
+      <span id="periodic-report-total">0 د.ع</span>
+    </div>
+
+    <div id="periodic-report-table" class="report-table"></div>
+  </div>
+</section>
+
+<!-- شاشة إدخال تسوية -->
+<section id="screen-add-settlement" class="screen">
+  <div class="top-actions">
+    <button class="back-btn" id="link-back-dashboard">‹ رجوع</button>
+  </div>
+  <div class="card">
+    <div class="title">إدخال تسوية</div>
+    <label>اختر الجهاز</label>
+    <div class="device-chips" id="settlement-device-chips"></div>
+
+    <label>مبلغ التسوية</label>
+    <input type="text" id="settlement-amount" placeholder="1,000,000" inputmode="numeric" />
+
+    <div class="commission-box">
+      <span>عمولتك من هذي التسوية</span>
+      <span id="settlement-commission">0 د.ع</span>
+    </div>
+
+    <div class="error-text" id="settlement-error"></div>
+    <div style="height:6px"></div>
+    <button class="btn btn-primary" id="btn-save-settlement">حفظ التسوية</button>
+  </div>
+</section>
+
+<!-- شاشة سحب بنكي -->
+<section id="screen-add-withdrawal" class="screen">
+  <div class="top-actions">
+    <button class="back-btn" id="link-back-dashboard-2">‹ رجوع</button>
+  </div>
+  <div class="card">
+    <div class="title">سحب بنكي</div>
+    <label>اختر الجهاز</label>
+    <div class="device-chips" id="withdrawal-device-chips"></div>
+
+    <div class="commission-box">
+      <span>الرصيد المعلق الحالي</span>
+      <span id="withdrawal-current-balance">0 د.ع</span>
+    </div>
+
+    <label>اسم المصرف</label>
+    <input type="text" id="withdrawal-bank" placeholder="مثلاً: مصرف الرافدين" />
+
+    <label>المبلغ المسحوب</label>
+    <input type="text" id="withdrawal-amount" placeholder="1,000,000" inputmode="numeric" />
+
+    <div class="error-text" id="withdrawal-error"></div>
+    <div style="height:6px"></div>
+    <button class="btn btn-primary" id="btn-save-withdrawal">حفظ السحب</button>
+  </div>
+</section>
+
+<div class="center-note">Manage My Cash — نسخة تجريبية أولى</div>
+
+<script type="module" src="js/auth.js?v=3"></script>
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
